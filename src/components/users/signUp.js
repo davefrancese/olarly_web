@@ -1,40 +1,67 @@
 import React from 'react'
 import {Form, Icon, Input, Button} from 'antd'
+import SignUpForm from './signUpForm'
+import SignUpPromptUserType from './signUpUserType'
+import {signUpUser} from '../../actions/userActions'
+import {connect} from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 class SignUp extends React.Component{
   constructor(){
     super()
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      userTypePrompt: false
     }
+  this.promptUserType = this.promptUserType.bind(this)
+  this.handleSignUpChange.bind = this.handleSignUpChange.bind(this)
+  }
+
+  promptUserType() {
+    this.setState({
+      userTypePrompt: true
+    })
+  }
+
+  handleSignUpSubmit = userType => e => {
+    e.preventDefault()
+    let userParams = {
+      email: this.state.email,
+      password: this.state.password,
+      role: userType
+    }
+    this.props.signUpUser(userParams)
+    //handle redirect to registrations
+  }
+
+  handleSignUpChange = input => e => {
+    const name = e.target.name
+    this.setState({
+      [name]: e.target.value
+    })
   }
 
   render(){
+    let userForm;
+    switch(this.state.userTypePrompt){
+      case false:
+        userForm = <SignUpForm promptUserType={this.promptUserType} user_credentials={this.state} handleSignUpChange={this.handleSignUpChange} />
+      break;
+      case true:
+        userForm = <SignUpPromptUserType handleSignUpSubmit={this.handleSignUpSubmit} />
+      break;
+    }
     return(
-      <Form>
-        <Form.Item>
-          <Input
-            prefix={<Icon type="form" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            name="email"
-            value={this.state.email}
-            placeholder="Email"
-          />
-        </Form.Item>
-        <Form.Item>
-          <Input
-            prefix={<Icon type="form" style={{ color: 'rgba(0,0,0,.25)' }} />}
-            name="password"
-            value={this.state.password}
-            placeholder="Password"
-          />
-        </Form.Item>
-        <Button>
-          Register
-        </Button>
-      </Form>
+      <div>
+      {userForm}
+      </div>
     )
   }
 }
 
-export default SignUp
+const mapStateToProps = (state, props) => ({
+  user: state.user.user
+})
+
+export default withRouter(connect(mapStateToProps, {signUpUser})(SignUp))
