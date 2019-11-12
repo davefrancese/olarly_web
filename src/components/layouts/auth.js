@@ -1,7 +1,7 @@
 import React from "react"
 import {Col, Row,Container} from 'reactstrap'
 import Main from "../main";
-import Olarly_logo from '../../assets/img/logos/olarlymain.png'
+// import Olarly_logo from '../../assets/img/logos/olarlymain.png'
 
 const Auth = ({children}) => (
   <React.Fragment>

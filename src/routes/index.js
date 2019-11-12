@@ -13,9 +13,14 @@ const userAuthRoutes = {
   name: "Auth",
   children: [
     {
-      path: "/auth/sign_up",
+      path: "/auth/sign-up",
       name: "New User",
       component: SignUp
+    },
+    {
+      path: "/auth/sign-in",
+      name: "Sign In",
+      //component: SignIn
     }
   ]
 }

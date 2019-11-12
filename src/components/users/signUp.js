@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, Icon, Input, Button} from 'antd'
+// import {Form, Icon, Input, Button} from 'antd'
 import SignUpForm from './signUpForm'
 import SignUpPromptUserType from './signUpUserType'
 import {signUpUser} from '../../actions/userActions'
@@ -32,7 +32,7 @@ class SignUp extends React.Component{
       role: userType
     }
     this.props.signUpUser(userParams)
-    //handle redirect to registrations
+    this.props.history.push(`/user/profile/`)
   }
 
   handleSignUpChange = input => e => {
@@ -46,11 +46,14 @@ class SignUp extends React.Component{
     let userForm;
     switch(this.state.userTypePrompt){
       case false:
-        userForm = <SignUpForm promptUserType={this.promptUserType} user_credentials={this.state} handleSignUpChange={this.handleSignUpChange} />
+        userForm = <SignUpForm promptUserType=
+      {this.promptUserType} user_credentials={this.state} handleSignUpChange={this.handleSignUpChange} />
       break;
       case true:
         userForm = <SignUpPromptUserType handleSignUpSubmit={this.handleSignUpSubmit} />
       break;
+      default:
+        return null;
     }
     return(
       <div>
