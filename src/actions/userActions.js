@@ -1,4 +1,5 @@
 import { SIGN_UP } from "./actionTypes";
+import { SIGN_IN } from "./actionTypes";
 
 export const signUpUser = userParams => dispatch => {
   fetch("http://localhost:3001/auth/signUp", {
@@ -21,4 +22,8 @@ export const signUpUser = userParams => dispatch => {
         payload: json
       })
     );
+};
+
+export const signInUser = userParams => dispatch => {
+  console.log("success", SIGN_IN);
 };
