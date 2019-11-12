@@ -1,12 +1,15 @@
-import React from 'react';
-import { Button } from 'antd';
+import React from "react";
+import { Button } from "antd";
 
-const signOut = (props) => {
+const signOut = props => {
+  console.log("signOut", props);
   return (
     <div>
-      <Button type="danger">Sign Out</Button>
+      <Button type="danger" onClick={props.signOutUser()}>
+        Sign Out
+      </Button>
     </div>
-  )
-}
+  );
+};
 
 export default signOut;

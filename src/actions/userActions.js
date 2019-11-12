@@ -1,5 +1,6 @@
 import { SIGN_UP } from "./actionTypes";
 import { SIGN_IN } from "./actionTypes";
+import { SIGN_OUT } from "./actionTypes";
 
 export const signUpUser = userParams => dispatch => {
   fetch("http://localhost:3001/auth/signUp", {
@@ -25,5 +26,9 @@ export const signUpUser = userParams => dispatch => {
 };
 
 export const signInUser = userParams => dispatch => {
-  console.log("success", SIGN_IN);
+  console.log("signed in", SIGN_IN);
+};
+
+export const signOutUser = () => dispatch => {
+  console.log("signed out", SIGN_OUT);
 };
