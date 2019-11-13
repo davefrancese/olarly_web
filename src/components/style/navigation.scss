@@ -1,0 +1,20 @@
+.Navigation {
+  display: flex;
+  img {
+    max-width: 200px;
+    margin: 1em;
+  }
+  nav {
+    margin-top: 2em;
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      padding-left: 1em;
+      justify-content: space-between;
+      li {
+        padding-left: 2em;
+      }
+    }
+  }
+}
