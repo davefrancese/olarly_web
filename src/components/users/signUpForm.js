@@ -2,6 +2,19 @@ import React from "react";
 import { Form, Icon, Input, Button } from "antd";
 
 const SignUpForm = props => {
+  // const formInputs = props.user_credentials.forEach((item, i) {
+  //   return (
+  //     <Form.Item>
+  //       <Input
+  //         onChange={props.handleSignUpChange(`${props.user_credentials.item}`)}
+  //         prefix={<Icon type="form" style={{ color: "rgba(0,0,0,.25)" }} />}
+  //         name="first_name"
+  //         value={props.user_credentials.first_name}
+  //         placeholder="First Name"
+  //       />
+  //     </Form.Item>
+  //   )
+  // })
   return (
     <Form>
       <Form.Item>

@@ -5,13 +5,11 @@ import "../style/navigation.scss";
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      user: false
-    };
+    this.state = {};
   }
 
   renderNav() {
-    return this.state.user ? (
+    return this.props.isUser ? (
       <ul>
         <li>
           <Link to="/" className="home">

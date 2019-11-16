@@ -13,7 +13,7 @@ export default function(state = initialState, action) {
       // Auth.authenticateToken(
       //   action.payload.headers.get("Authorization").split("Bearer ")[1]
       // );
-      console.log("token", action.payload);
+      console.log("token", action.payload.headers);
       return {
         ...state,
         user: action.payload.json.user,

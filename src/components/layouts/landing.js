@@ -9,7 +9,7 @@ class LandingLayout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: true
+      user: false
     };
   }
 
@@ -28,7 +28,7 @@ class LandingLayout extends React.Component {
   render() {
     return (
       <div className="Landing-Layout">
-        <Navigation />
+        <Navigation isUser={this.state.user} />
         <main>{this.renderContent()}</main>
       </div>
     );
