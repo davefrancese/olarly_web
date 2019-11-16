@@ -3,7 +3,8 @@ import { SIGN_IN } from "./actionTypes";
 import { SIGN_OUT } from "./actionTypes";
 
 export const signUpUser = userParams => dispatch => {
-  fetch("http://localhost:3001/auth/signUp", {
+  console.log("signUp", SIGN_UP, userParams);
+  fetch("http://olarly-api.herokuapp.com/api/v1/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

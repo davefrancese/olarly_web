@@ -18,9 +18,10 @@ class Navigation extends React.Component {
             Home
           </Link>
         </li>
-        <li>
-          <Link to="/sign-out">Sign Out</Link>
-        </li>
+        {/* list classes/students/tasks here */}
+        <li>Classes</li>
+        <li>Students</li>
+        <li>Tasks</li>
       </ul>
     ) : (
       <ul>

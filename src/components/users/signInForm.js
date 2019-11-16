@@ -22,7 +22,8 @@ const SignInForm = props => {
           placeholder="Password"
         />
       </Form.Item>
-      <Button onClick={props.handleSignInSubmit}>Sign Up</Button>
+
+      <Button onClick={props.handleSignInSubmit}>Sign In</Button>
     </Form>
   );
 };
