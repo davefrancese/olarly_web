@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Icon, Input, Button } from "antd";
+import "../style/signUpForm.scss";
 
 const SignUpForm = props => {
   // const formInputs = props.user_credentials.forEach((item, i) {
@@ -16,7 +17,7 @@ const SignUpForm = props => {
   //   )
   // })
   return (
-    <Form>
+    <Form className="sign-up-form">
       <Form.Item>
         <Input
           onChange={props.handleSignUpChange(props.user_credentials.first_name)}
@@ -49,6 +50,7 @@ const SignUpForm = props => {
           onChange={props.handleSignUpChange(props.user_credentials.password)}
           prefix={<Icon type="form" style={{ color: "rgba(0,0,0,.25)" }} />}
           name="password"
+          type="password"
           value={props.user_credentials.password}
           placeholder="Password"
         />

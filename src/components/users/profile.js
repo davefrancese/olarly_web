@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Navigation from "../shared/navigation";
+
+import "../style/profile.scss";
 
 class Profile extends Component {
   constructor(props) {
@@ -11,10 +12,9 @@ class Profile extends Component {
   }
 
   render() {
-    console.log("Profile", this.props.user);
+    console.log("Profile", this.props);
     return (
       <div className="Profile">
-        <Navigation isRegistered={this.props.user.registered} />
         <h3>Profile</h3>
         <p>Welcome, {this.props.user.user.username}</p>
       </div>

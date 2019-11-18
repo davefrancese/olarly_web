@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { signOutUser } from "../../actions/userActions";
 
 import SignOut from "../users/signOut";
 
@@ -19,7 +20,9 @@ class Navigation extends React.Component {
         <li>Classes</li>
         <li>Students</li>
         <li>Tasks</li>
-        <li>{/* <SignOut signOutUser={this.props.signOutUser} /> */}</li>
+        <li>
+          <SignOut signOutUser={this.props.signOutUser} />
+        </li>
       </ul>
     ) : (
       <ul>
@@ -29,10 +32,10 @@ class Navigation extends React.Component {
           </Link>
         </li>
         <li>
-          <Link to="/auth/sign-in">Sign In</Link>
+          <Link to="/sign-in">Sign In</Link>
         </li>
         <li>
-          <Link to="/auth/sign-up">New User</Link>
+          <Link to="/sign-up">New User</Link>
         </li>
       </ul>
     );
@@ -42,7 +45,9 @@ class Navigation extends React.Component {
     console.log("Navigation", this.props);
     return (
       <div className="Navigation">
-        <img src="olarlymain2.png" alt="scholarly logo" />
+        <Link to="/">
+          <img src="olarlymain2.png" alt="scholarly logo" />
+        </Link>
         <nav>{this.renderNav()}</nav>
       </div>
     );
@@ -51,11 +56,11 @@ class Navigation extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    user: state.user.user
+    user: state.user
   };
 };
 
 export default connect(
   mapStateToProps,
-  null
+  { signOutUser }
 )(Navigation);

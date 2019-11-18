@@ -38,7 +38,7 @@ class SignUp extends React.Component {
       role: userType
     };
     this.props.signUpUser(userParams);
-    this.props.history.push(`/user/profile`);
+    this.props.history.push(`/profile`);
   };
 
   handleSignUpChange = input => e => {
@@ -68,7 +68,7 @@ class SignUp extends React.Component {
       default:
         return null;
     }
-    return <div>{userForm}</div>;
+    return <div className="sign-up-form-container">{userForm}</div>;
   }
 }
 

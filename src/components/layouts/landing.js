@@ -1,21 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 // import {Col, Container, Row} from 'reactstrap'
-import Navigation from "../shared/navigation";
+// import Navigation from "../shared/navigation";
 import Profile from "../users/profile";
 
 import "../style/landing.scss";
 
 class LandingLayout extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: false
-    };
-  }
-
   renderContent() {
-    return this.state.user ? (
+    return this.props.isRegistered ? (
       <div>
         <Profile />
       </div>
@@ -30,7 +23,6 @@ class LandingLayout extends React.Component {
     console.log("landing", this.props);
     return (
       <div className="Landing-Layout">
-        <Navigation />
         <main>{this.renderContent()}</main>
       </div>
     );
