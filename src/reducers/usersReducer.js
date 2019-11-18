@@ -1,5 +1,5 @@
 import { SIGN_UP } from "../actions/actionTypes";
-// import Auth from "../auth";
+import Auth from "../auth";
 
 const initialState = {
   user: {},
@@ -9,11 +9,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case SIGN_UP:
-      // Auth.authenticateToken(action.payload.json.token);
-      // Auth.authenticateToken(
-      //   action.payload.headers.get("Authorization").split("Bearer ")[1]
-      // );
-      console.log("token", action.payload.headers);
+      Auth.authenticateToken(action.payload.headers.get("Access-Token"));
       return {
         ...state,
         user: action.payload.json.user,

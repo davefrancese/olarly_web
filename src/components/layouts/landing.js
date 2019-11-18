@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 // import {Col, Container, Row} from 'reactstrap'
 import Navigation from "../shared/navigation";
 import Profile from "../users/profile";
@@ -26,13 +27,23 @@ class LandingLayout extends React.Component {
   }
 
   render() {
+    console.log("landing", this.props);
     return (
       <div className="Landing-Layout">
-        <Navigation isUser={this.state.user} />
+        <Navigation />
         <main>{this.renderContent()}</main>
       </div>
     );
   }
 }
 
-export default LandingLayout;
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user.user
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(LandingLayout);

@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import SignOut from "../users/signOut";
+
 import "../style/navigation.scss";
 
 class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   renderNav() {
-    return this.props.isUser ? (
+    return this.props.isRegistered ? (
       <ul>
         <li>
           <Link to="/" className="home">
@@ -20,6 +19,7 @@ class Navigation extends React.Component {
         <li>Classes</li>
         <li>Students</li>
         <li>Tasks</li>
+        <li>{/* <SignOut signOutUser={this.props.signOutUser} /> */}</li>
       </ul>
     ) : (
       <ul>
@@ -39,6 +39,7 @@ class Navigation extends React.Component {
   }
 
   render() {
+    console.log("Navigation", this.props);
     return (
       <div className="Navigation">
         <img src="olarlymain2.png" alt="scholarly logo" />
@@ -48,4 +49,13 @@ class Navigation extends React.Component {
   }
 }
 
-export default Navigation;
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.user.user
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(Navigation);

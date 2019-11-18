@@ -1,19 +1,21 @@
-import React from 'react'
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //Layouts
-import LandingLayout from "../components/layouts/landing"
-import AuthLayout from "../components/layouts/auth"
+import LandingLayout from "../components/layouts/landing";
+import AuthLayout from "../components/layouts/auth";
+import Profile from "../components/users/profile";
 //Routes
 import {
   landing as landingRoutes,
   auth as userAuthRoutes,
-} from "./index"
+  user as userRoutes
+} from "./index";
 
 const childRoutes = (Layout, routes) =>
-    routes.map(({children, path, component: Component}, index) =>
+  routes.map(({ children, path, component: Component }, index) =>
     children ? (
       //Route item with children
-      children.map(({path, component: Component}, index) => (
+      children.map(({ path, component: Component }, index) => (
         <Route
           key={index}
           path={path}
@@ -26,7 +28,7 @@ const childRoutes = (Layout, routes) =>
         />
       ))
     ) : (
-    //Route item without Children
+      //Route item without Children
       <Route
         key={index}
         path={path}
@@ -36,21 +38,22 @@ const childRoutes = (Layout, routes) =>
             <Component {...props} />
           </Layout>
         )}
-        />
+      />
     )
-  )
+  );
 
-class Routes extends React.Component{
-  render(){
-    return(
+class Routes extends React.Component {
+  render() {
+    return (
       <Router>
         <Switch>
           {childRoutes(LandingLayout, landingRoutes)}
           {childRoutes(AuthLayout, userAuthRoutes)}
+          {childRoutes(Profile, userRoutes)}
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
-export default Routes
+export default Routes;

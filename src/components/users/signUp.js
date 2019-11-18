@@ -38,7 +38,7 @@ class SignUp extends React.Component {
       role: userType
     };
     this.props.signUpUser(userParams);
-    this.props.history.push(`/user/profile/`);
+    this.props.history.push(`/user/profile`);
   };
 
   handleSignUpChange = input => e => {
