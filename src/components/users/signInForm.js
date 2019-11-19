@@ -1,9 +1,11 @@
 import React from "react";
 import { Form, Icon, Input, Button } from "antd";
+import "../style/signInForm.scss";
 
 const SignInForm = props => {
+  console.log("signInForm", props);
   return (
-    <Form>
+    <Form className="sign-in-form">
       <Form.Item>
         <Input
           onChange={props.handleSignInChange(props.user_credentials.email)}

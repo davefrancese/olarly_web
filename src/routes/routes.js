@@ -5,6 +5,7 @@ import Navigation from "../components/shared/navigation";
 //Layouts
 import Landing from "../components/layouts/landing";
 import SignUp from "../components/users/signUp";
+import SignIn from "../components/users/signIn";
 import Profile from "../components/users/profile";
 // import AuthLayout from "../components/layouts/auth";
 // import Profile from "../components/users/profile";
@@ -58,6 +59,9 @@ class Routes extends React.Component {
           </Route>
           <Route path="/sign-up">
             <SignUp />
+          </Route>
+          <Route path="/sign-in">
+            <SignIn />
           </Route>
           <Route path="/profile">
             <Profile />

@@ -26,7 +26,7 @@ class SignIn extends React.Component {
       password: this.state.password
     };
     this.props.signInUser(userParams);
-    // this.props.history.push(`/user/profile/`);
+    this.props.history.push(`/profile`);
   };
 
   handleSignInChange = input => e => {

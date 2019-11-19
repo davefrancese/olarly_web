@@ -20,7 +20,6 @@ class LandingLayout extends React.Component {
   }
 
   render() {
-    console.log("landing", this.props);
     return (
       <div className="Landing-Layout">
         <main>{this.renderContent()}</main>
