@@ -2,6 +2,8 @@ import { SIGN_UP } from "./actionTypes";
 import { SIGN_IN } from "./actionTypes";
 import { SIGN_OUT } from "./actionTypes";
 
+//dave, we could totally refactor this idk why this has been common practice.
+
 export const signUpUser = userParams => dispatch => {
   fetch("http://olarly-api.herokuapp.com/api/v1/users", {
     method: "POST",
@@ -26,7 +28,6 @@ export const signUpUser = userParams => dispatch => {
 };
 
 export const signInUser = userParams => dispatch => {
-  console.log("signed in", userParams);
   fetch("http://olarly-api.herokuapp.com/api/v1/users/sign_in", {
     method: "POST",
     headers: {
@@ -49,12 +50,13 @@ export const signInUser = userParams => dispatch => {
     );
 };
 
-export const signOutUser = token => dispatch => {
-  console.log("token", token);
+export const userSignOut = (callbackRedirect) => dispatch => {
   fetch("http://olarly-api.herokuapp.com/api/v1/users/sign_out", {
     method: "DELETE",
     headers: {
-      "access-token": token
+    //  "access-token": token,
+      "client": `client`,
+      "uid": `uid`
     }
   })
     .then(res =>
@@ -67,5 +69,6 @@ export const signOutUser = token => dispatch => {
         type: SIGN_OUT,
         payload: json
       })
-    );
+    )
+    .then(json => callbackRedirect(json))
 };

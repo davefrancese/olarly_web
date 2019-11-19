@@ -1,7 +1,6 @@
 import Landing from "../components/layouts/landing";
 import SignUp from "../components/users/signUp";
 import SignIn from "../components/users/signIn";
-import SignOut from "../components/users/signOut";
 import Profile from "../components/users/profile";
 
 const landingRoutes = {
@@ -24,11 +23,6 @@ const userAuthRoutes = {
       path: "/auth/sign-in",
       name: "Sign In",
       component: SignIn
-    },
-    {
-      path: "/auth/sign-out",
-      name: "Sign Out",
-      component: SignOut
     }
   ]
 };
