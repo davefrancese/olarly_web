@@ -44,4 +44,8 @@ export const landing = [landingRoutes];
 export const auth = [userAuthRoutes];
 export const user = [userRoutes];
 
-export default [landingRoutes, userAuthRoutes, userRoutes];
+export default [
+  landingRoutes,
+  userAuthRoutes,
+  userRoutes
+];
