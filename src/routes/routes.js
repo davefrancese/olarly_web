@@ -10,65 +10,50 @@ import Profile from "../components/users/profile";
 // import AuthLayout from "../components/layouts/auth";
 // import Profile from "../components/users/profile";
 // //Routes
-// import {
-//   landing as landingRoutes,
-//   auth as userAuthRoutes,
-//   user as userRoutes
-// } from "./index";
+ import {
+   landing as landingRoutes,
+   auth as userAuthRoutes,
+   user as userRoutes
+ } from "./index";
 
-// const childRoutes = (Layout, routes) =>
-//   routes.map(({ children, path, component: Component }, index) =>
-//     children ? (
-//       //Route item with children
-//       children.map(({ path, component: Component }, index) => (
-//         <Route
-//           key={index}
-//           path={path}
-//           exact
-//           render={props => (
-//             <Layout>
-//               <Component {...props} />
-//             </Layout>
-//           )}
-//         />
-//       ))
-//     ) : (
-//       //Route item without Children
-//       <Route
-//         key={index}
-//         path={path}
-//         exact
-//         render={props => (
-//           <Layout>
-//             <Component {...props} />
-//           </Layout>
-//         )}
-//       />
-//     )
-//   );
+ const childRoutes = (Layout, routes) =>
+   routes.map(({ children, path, component: Component }, index) =>
+     children ? (
+       //Route item with children
+       children.map(({ path, component: Component }, index) => (
+         <Route
+           key={index}
+           path={path}
+           exact
+           render={props => (
+             <Layout>
+               <Component {...props} />
+             </Layout>
+           )}
+         />
+       ))
+     ) : (
+       //Route item without Children
+       <Route
+         key={index}
+         path={path}
+         exact
+         render={props => (
+           <Layout>
+             <Component {...props} />
+           </Layout>
+         )}
+       />
+     )
+   );
 
 class Routes extends React.Component {
   render() {
-    console.log("Routes", this.props);
     return (
       <Router>
-        <Navigation isRegistered={this.props.user.registered} />
         <Switch>
-          <Route exact path="/">
-            <Landing isRegistered={this.props.user.registered} />
-          </Route>
-          <Route path="/sign-up">
-            <SignUp />
-          </Route>
-          <Route path="/sign-in">
-            <SignIn />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-          </Route>
-          {/* {childRoutes(LandingLayout, landingRoutes)}
-          {childRoutes(AuthLayout, userAuthRoutes)}
-          {childRoutes(Profile, userRoutes)} */}
+          {childrenRoutes()}
+          {childrenRoutes()}
         </Switch>
       </Router>
     );
