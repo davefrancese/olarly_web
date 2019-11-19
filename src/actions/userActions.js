@@ -1,7 +1,6 @@
 import { SIGN_UP } from "./actionTypes";
 import { SIGN_IN } from "./actionTypes";
 import { SIGN_OUT } from "./actionTypes";
-import Auth from "../auth";
 
 export const signUpUser = userParams => dispatch => {
   fetch("http://olarly-api.herokuapp.com/api/v1/users", {
@@ -51,17 +50,15 @@ export const signInUser = userParams => dispatch => {
 };
 
 export const signOutUser = token => dispatch => {
+  console.log("token", token);
   fetch("http://olarly-api.herokuapp.com/api/v1/users/sign_out", {
-    method: "POST",
+    method: "DELETE",
     headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ token })
+      "access-token": token
+    }
   })
     .then(res =>
       res.json().then(json => ({
-        headers: res.headers,
-        status: res.status,
         json
       }))
     )

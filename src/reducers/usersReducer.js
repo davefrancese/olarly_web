@@ -24,6 +24,7 @@ export default function(state = initialState, action) {
       };
     case SIGN_OUT:
       console.log("signOutReducer", action.payload);
+
       return {
         ...state,
         user: action.payload.json.user,
