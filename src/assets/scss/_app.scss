@@ -69,3 +69,12 @@
 @import "5-vendor/react-select";
 @import "5-vendor/toastr";
 @import "5-vendor/wizard";
+
+
+
+.sidebar-brand{
+  background: #f9f9f9 !important;
+  img {
+    max-width: 150px;
+  }
+}

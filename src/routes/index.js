@@ -3,6 +3,13 @@ import SignUp from "../components/users/signUp";
 import SignIn from "../components/users/signIn";
 import Profile from "../components/users/profile";
 
+import {
+Layout as LayoutIcon,
+} from "react-feather"
+
+//Teacher
+import Tasks from "../components/teacher/tasks"
+
 const landingRoutes = {
   path: "/",
   name: "Landing Page",
@@ -27,19 +34,25 @@ const userAuthRoutes = {
   ]
 };
 
-const userRoutes = {
-  path: "/user/profile",
-  name: "profile",
-  component: Profile,
-  children: null
+const teacherRoutes = {
+  path: "/dashboard",
+  name: "Dashboard",
+  icon: LayoutIcon,
+  children: [
+    {
+      path: "/dashboard/tasks",
+      name: "Tasks",
+      component: Tasks
+    }
+  ]
 };
 
 export const landing = [landingRoutes];
 export const auth = [userAuthRoutes];
-export const user = [userRoutes];
+export const teacher = [teacherRoutes]
 
 export default [
   landingRoutes,
   userAuthRoutes,
-  userRoutes
+  teacherRoutes
 ];
