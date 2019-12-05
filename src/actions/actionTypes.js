@@ -2,7 +2,7 @@
 export const SIGN_UP = "SIGN_UP";
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_OUT = "SIGN_OUT";
-
+export const TEACHER_REGISTER = "TEACHER_REGISTER";
 
 // Sidebar
 export const SIDEBAR_VISIBILITY_TOGGLE = "SIDEBAR_VISIBILITY_TOGGLE";

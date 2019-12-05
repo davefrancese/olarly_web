@@ -2,13 +2,12 @@ import Landing from "../components/layouts/landing";
 import SignUp from "../components/users/signUp";
 import SignIn from "../components/users/signIn";
 import Profile from "../components/users/profile";
+import Register from "../components/teacher/register/register";
 
-import {
-Layout as LayoutIcon,
-} from "react-feather"
+import { Layout as LayoutIcon } from "react-feather";
 
 //Teacher
-import Tasks from "../components/teacher/tasks"
+import Tasks from "../components/teacher/tasks";
 
 const landingRoutes = {
   path: "/",
@@ -43,16 +42,17 @@ const teacherRoutes = {
       path: "/dashboard/tasks",
       name: "Tasks",
       component: Tasks
+    },
+    {
+      path: "/register",
+      name: "Register",
+      component: Register
     }
   ]
 };
 
 export const landing = [landingRoutes];
 export const auth = [userAuthRoutes];
-export const teacher = [teacherRoutes]
+export const teacher = [teacherRoutes];
 
-export default [
-  landingRoutes,
-  userAuthRoutes,
-  teacherRoutes
-];
+export default [landingRoutes, userAuthRoutes, teacherRoutes];

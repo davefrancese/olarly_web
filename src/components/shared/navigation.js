@@ -5,50 +5,53 @@ import { userSignOut } from "../../actions/userActions";
 
 import "../style/navigation.scss";
 
-class Navigation extends React.Component{
-  constructor(){
-    super()
-    this.sign_out = this.sign_out.bind(this)
+class Navigation extends React.Component {
+  constructor() {
+    super();
+    this.sign_out = this.sign_out.bind(this);
   }
 
-  redirectResponse = (response) => {
-    this.props.history.push(`/`)
-  }
+  redirectResponse = response => {
+    this.props.history.push(`/`);
+  };
 
-  sign_out(e){
-    e.preventDefault()
-    this.props.userSignOut(this.redirectResponse)
+  sign_out(e) {
+    e.preventDefault();
+    this.props.userSignOut(this.redirectResponse);
     //dave, redirectResp is a callback I just like doing it like this
     //it might be over the top but it lays the foundation to do much more
   }
 
-  render(){
+  render() {
     let AuthorizedLinks;
     let redirectPath;
 
-    switch(Auth.isUserAuthenticated()){
+    switch (Auth.isUserAuthenticated()) {
       case true:
-        AuthorizedLinks = [
-          <button onClick={this.sign_out}>Sign Out</button>
-        ]
+        AuthorizedLinks = [<button onClick={this.sign_out}>Sign Out</button>];
         break;
       case false:
         AuthorizedLinks = [
           <Link to="/auth/sign-in">Sign In</Link>,
-          <Link to="/auth/sign-up">Sign up</Link>]
+          <Link to="/auth/sign-up">Sign up</Link>
+        ];
         break;
+      default:
     }
 
-    const linkItems = AuthorizedLinks.map((link) =>
-      <p>{link}</p>
-    )
-    return(
+    const linkItems = AuthorizedLinks.map(link => <p>{link}</p>);
+    return (
       <div>
         {redirectPath}
         {linkItems}
       </div>
-    )
+    );
   }
 }
 
-export default withRouter(connect(mapStateToProps, { userSignOut })(Navigation))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { userSignOut }
+  )(Navigation)
+);

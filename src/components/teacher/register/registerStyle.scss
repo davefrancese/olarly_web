@@ -1,0 +1,40 @@
+.Register {
+  .register-progress-bar {
+    margin-top: 50px;
+  }
+  .question1 {
+    .register-next-btn {
+      margin-top: 10px;
+      display: flex;
+      margin: 10px auto;
+    }
+  }
+  .question2 {
+    .register-page-nav {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+  }
+  .question3 {
+    .register-page-nav {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+  }
+  .register-submit {
+    .register-page-nav {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+      .register-confirm-btn {
+        background: #0caa40;
+        color: white;
+      }
+      .register-confirm-btn:hover {
+        background: #0db846;
+      }
+    }
+  }
+}
