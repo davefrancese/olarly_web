@@ -6,7 +6,7 @@ const Question2 = props => {
   return (
     <div className="question2">
       <p>What class do you teach?</p>
-      <Input onChange={e => props.changeClass(e)} />
+      <Input onChange={e => props.changeClass(e)} value={props.input} />
 
       <div className="register-page-nav">
         <Button onClick={() => props.pageDown()} className="register-next-btn">

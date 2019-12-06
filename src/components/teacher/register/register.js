@@ -12,7 +12,7 @@ class Register extends React.Component {
     super(props);
     this.state = {
       curPage: 1,
-      totalPages: 3,
+      totalPages: 4,
       school: "",
       class: "",
       subject: ""
@@ -48,20 +48,6 @@ class Register extends React.Component {
     });
   };
 
-  renderProgress = () => {
-    if (this.state.curPage > 3) {
-      return null;
-    } else {
-      const { curPage, totalPages } = this.state;
-      return (
-        <div className="register-progress-bar">
-          <div className="text-center">{`${curPage} of ${totalPages}`}</div>
-          <Progress value={curPage} max={totalPages} />
-        </div>
-      );
-    }
-  };
-
   renderContent = () => {
     console.log("Register State", this.state);
     switch (this.state.curPage) {
@@ -70,6 +56,7 @@ class Register extends React.Component {
           <Question1
             pageUp={() => this.pageUp()}
             changeSchool={e => this.changeSchool(e)}
+            input={this.state.school}
           />
         );
       case 2:
@@ -78,6 +65,7 @@ class Register extends React.Component {
             pageUp={() => this.pageUp()}
             pageDown={this.pageDown}
             changeClass={e => this.changeClass(e)}
+            input={this.state.class}
           />
         );
       case 3:
@@ -86,6 +74,7 @@ class Register extends React.Component {
             pageUp={() => this.pageUp()}
             pageDown={this.pageDown}
             changeSubject={e => this.changeSubject(e)}
+            input={this.state.subject}
           />
         );
       case 4:
@@ -107,13 +96,16 @@ class Register extends React.Component {
   };
 
   render() {
-    // const { curPage, totalPages } = this.state;
+    const { curPage, totalPages } = this.state;
     return (
       <div className="Register">
         <h1>Register</h1>
         <p>{this.state.page}</p>
         {this.renderContent()}
-        {this.renderProgress()}
+        <div className="register-progress-bar">
+          <div className="text-center">{`${curPage} of ${totalPages}`}</div>
+          <Progress value={curPage} max={totalPages} />
+        </div>
       </div>
     );
   }

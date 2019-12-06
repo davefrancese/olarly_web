@@ -7,7 +7,11 @@ const Question1 = props => {
     <div className="question1">
       <p>Where do you teach?</p>
 
-      <Input name="school" onChange={e => props.changeSchool(e)} />
+      <Input
+        name="school"
+        onChange={e => props.changeSchool(e)}
+        value={props.input}
+      />
       <div className="register-page-nav">
         <Button
           onClick={() => props.pageUp()}
