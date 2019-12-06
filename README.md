@@ -1,7 +1,5 @@
 # Olarly
 
-- Dave
-
 - [ ] Register teacher action needs endpoint
 - [ ] Progress bar needs some attention (pages out of sync)
 - [ ] When clicking on 'back' btn the field should contain input user had previously put in
