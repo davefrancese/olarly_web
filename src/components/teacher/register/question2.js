@@ -2,6 +2,33 @@ import React from "react";
 import { Input, Button } from "antd";
 import "./registerStyle.scss";
 
+const renderNext = props => {
+  if (props.input === "") {
+    return (
+      <Button
+        onClick={() => props.pageUp()}
+        type="primary"
+        htmlType="button"
+        className="register-next-btn"
+        disabled
+      >
+        Next
+      </Button>
+    );
+  } else {
+    return (
+      <Button
+        onClick={() => props.pageUp()}
+        type="primary"
+        htmlType="button"
+        className="register-next-btn"
+      >
+        Next
+      </Button>
+    );
+  }
+};
+
 const Question2 = props => {
   return (
     <div className="question2">
@@ -12,14 +39,7 @@ const Question2 = props => {
         <Button onClick={() => props.pageDown()} className="register-next-btn">
           Back
         </Button>
-        <Button
-          onClick={() => props.pageUp()}
-          type="primary"
-          htmlType="button"
-          className="register-next-btn"
-        >
-          Next
-        </Button>
+        {renderNext(props)}
       </div>
     </div>
   );
