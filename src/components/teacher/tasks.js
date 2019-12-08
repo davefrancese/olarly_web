@@ -1,11 +1,13 @@
-import React from "react"
+import React from "react";
 
 class Tasks extends React.Component {
-  render(){
-    return(
-      <div> Tasks</div>
-    )
+  render() {
+    return (
+      <div className="teacher-tasks">
+        <h1>Tasks</h1>
+      </div>
+    );
   }
 }
 
-export default Tasks 
+export default Tasks;

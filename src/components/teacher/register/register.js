@@ -49,7 +49,6 @@ class Register extends React.Component {
   };
 
   renderContent = () => {
-    console.log("Register State", this.state);
     switch (this.state.curPage) {
       case 1:
         return (
