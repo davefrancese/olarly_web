@@ -11,8 +11,8 @@
 
 #### Tasks
 
-- [ ] Need endpoints to test with real data
-- [ ] Should deploy of some kind due to routing (ie - when clicking on a specific task to see more, this should route to that specific tasks' route. Right now, we would have to explicitly put https... on all tasks.)
+- [ ] Need endpoints to test
+- [ ] Should deploy ? due to routing (ie - when clicking on a specific task to see more, this should route to that specific tasks' route. Right now, we would have to explicitly put 'https...localhost/.../...' on all tasks.)
 
 - [ ] Teachers need to be able to create a task
 - [ ] Teachers need to be able to read their tasks
