@@ -7,7 +7,7 @@ import Register from "../components/teacher/register/register";
 import { Layout as LayoutIcon } from "react-feather";
 
 //Teacher
-import Tasks from "../components/teacher/tasks";
+import Tasks from "../components/teacher/tasks/tasks";
 
 const landingRoutes = {
   path: "/",
